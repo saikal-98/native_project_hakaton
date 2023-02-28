@@ -8,8 +8,10 @@ body {
   height: 100%;
   display: block;
   text-align: center;
-  font-family: cursive;
+  font-family: Garamond, serif;
+  font-style: italic;
 }
+
 .big-img {
   display: flex;
   justify-content: center;
@@ -64,19 +66,23 @@ body {
 }
 
 .card-title {
-  font-family: cursive;
+  font-family: Garamond, serif;
+  font-style: italic;
 }
 .card-text {
-  font-family: cursive;
+  font-family: Garamond, serif;
+  font-style: italic;
 }
 .btn-edit {
   background: rgb(82, 120, 82);
-  font-family: cursive;
+  font-family: Garamond, serif;
+  font-style: italic;
   color: black;
 }
 .btn-delete {
   background: rgb(215, 155, 155);
-  font-family: cursive;
+  font-family: Garamond, serif;
+  font-style: italic;
   color: black;
 }
 .modal-body {
@@ -93,29 +99,41 @@ body {
 
 .save-btn {
   background-color: rgb(224, 169, 207);
+  border-radius: 10px;
+  text-align: center;
 }
 
 .edit-title {
   background: transparent;
   margin-top: 27px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .edit-price {
   background: transparent;
   margin-top: 27px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .edit-category {
   background: transparent;
   margin-top: 27px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .edit-descr {
   background: transparent;
   margin-top: 27px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .edit-image {
   background: transparent;
   margin-top: 27px;
+  border-radius: 10px;
+  text-align: center;
 }
