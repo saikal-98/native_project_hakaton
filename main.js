@@ -37,17 +37,15 @@ addBtn.addEventListener("click", async () => {
     },
     body: JSON.stringify(obj),
   });
+  // ? очищаем инпуты
+  title.value = "";
+  category.value = "";
+  descr.value = "";
+  price.value = "";
+  image.value = "";
+
+  render();
 });
-
-// ? очищаем инпуты
-
-title.value = "";
-category.value = "";
-descr.value = "";
-price.value = "";
-image.value = "";
-
-render();
 
 // ?функция для отображения карточек продукта
 
@@ -69,9 +67,11 @@ async function render() {
           <p class="card-text">${item.descr}</p>
           <p class="card-text">${item.price}</p>
           <a href="#" id=${item.id} class="btn btn-primary">DELETE</a>
-          <a href="#" id=${item.id} class="btn btn-dark">EDIT</a>
+          <a href="#" id=${item.id} class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal>EDIT</a>
         </div>
       </div>`;
     productList.append(newItem);
   });
 }
+
+render();
