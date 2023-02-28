@@ -17,12 +17,45 @@
       "id": 2
     },
     {
+
       "title": "powder",
       "category": "decorative cosmetics",
       "description": "powder",
       "price": "567",
       "image": "https://i.pinimg.com/474x/9e/5f/7c/9e5f7cd0bc9059d92564a323033f3bd3.jpg",
       "id": 3
+
+      "title": "lipstick",
+      "category": "decoration",
+      "description": "red",
+      "price": "300",
+      "image": "https://i.pinimg.com/564x/a9/46/d8/a946d8a4c19a50c4c4c9340b721edbf8.jpg",
+      "id": 4
+    },
+    {
+      "title": "eye shadow",
+      "category": "decoration ",
+      "description": "matte",
+      "price": "320",
+      "image": "https://i.pinimg.com/564x/af/08/85/af0885ff815164e8825329361aef3f4b.jpg",
+      "id": 5
+    },
+    {
+      "title": "miss dior",
+      "category": "perfume",
+      "description": "this sweet aromat",
+      "price": "600",
+      "image": "https://i.pinimg.com/564x/01/47/d2/0147d207daddc7793e6ad331ebbe559d.jpg",
+      "id": 6
+    },
+    {
+      "title": "blush",
+      "category": "decoration cosmetic",
+      "description": "sweet cherry",
+      "price": "320",
+      "image": "https://i.pinimg.com/564x/ee/c2/00/eec20027c98e1ae92f6cc16f66034aa8.jpg",
+      "id": 7
+
     }
   ]
 }
