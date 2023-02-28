@@ -1,14 +1,11 @@
 let API = "http://localhost:8000/cosmetics";
 
-//? вытаскиваем инпуты
 let title = document.querySelector("#title");
 let category = document.querySelector("#category");
 let description = document.querySelector("#desc");
 let price = document.querySelector("#price");
 let image = document.querySelector("#image");
 let addBtn = document.querySelector("#addBtn");
-
-// ? вытаскиваем инпуты из модалки
 
 let editedTitle = document.querySelector(".edit-title");
 let editedCategory = document.querySelector(".edit-category");
@@ -50,7 +47,7 @@ addBtn.addEventListener("click", async () => {
     alert("fill to the blank please");
     return;
   }
-  // ? отправляем пост запрос
+
   await fetch(API, {
     method: "POST",
     headers: {
@@ -110,7 +107,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ? Отлавлтваем клик по кнопке edit
+// ? edit
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("btn-edit")) {
     let id = e.target.id;
@@ -118,7 +115,6 @@ document.addEventListener("click", function (e) {
     fetch(`${API}/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // ? заполняем инпуты модального окна данными которые стянули с сервера
         editedTitle.value = data.title;
         editedPrice.value = data.price;
         editedDescr.value = data.description;
@@ -152,7 +148,7 @@ editBtnAdd.addEventListener("click", function (e) {
     title: titleMod,
     price: priceModal,
     description: descrModal,
-    Url: imageModal,
+    image: imageModal,
     category: categoryModal,
   };
   saveEdit(editedProduct, id);
