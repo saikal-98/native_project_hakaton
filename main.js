@@ -37,7 +37,6 @@ addBtn.addEventListener("click", async () => {
     },
     body: JSON.stringify(obj),
   });
-
   // ? очищаем инпуты
   title.value = "";
   category.value = "";
