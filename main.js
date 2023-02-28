@@ -3,10 +3,20 @@ let API = "http://localhost:8000/cosmetics";
 //? вытаскиваем инпуты
 let title = document.querySelector("#title");
 let category = document.querySelector("#category");
-let descr = document.querySelector("#desc");
+let description = document.querySelector("#desc");
 let price = document.querySelector("#price");
 let image = document.querySelector("#image");
 let addBtn = document.querySelector("#addBtn");
+
+// ? вытаскиваем инпуты из модалки
+
+let editedTitle = document.querySelector(".edit-title");
+let editedCategory = document.querySelector(".edit-category");
+let editedDescr = document.querySelector(".edit-descr");
+let editedPrice = document.querySelector(".edit-price");
+let editedImage = document.querySelector(".edit-image");
+let modal = document.querySelector("#exampleModal");
+let editBtnAdd = document.querySelector(".save-btn");
 
 let productList = document.querySelector(".product-list");
 
@@ -14,7 +24,7 @@ addBtn.addEventListener("click", async () => {
   let obj = {
     title: title.value,
     category: category.value,
-    description: descr.value,
+    description: description.value,
     price: price.value,
     image: image.value,
   };
@@ -40,7 +50,7 @@ addBtn.addEventListener("click", async () => {
   // ? очищаем инпуты
   title.value = "";
   category.value = "";
-  descr.value = "";
+  description.value = "";
   price.value = "";
   image.value = "";
 
@@ -64,10 +74,10 @@ async function render() {
         <div class="card-body">
           <h5 class="card-title">${item.title}</h5>
           <h2 class="card-title">${item.category}</h2>
-          <p class="card-text">${item.descr}</p>
+          <p class="card-text">${item.description}</p>
           <p class="card-text">${item.price}</p>
           <a href="#" id=${item.id} class="btn btn-delete btn-primary">DELETE</a>
-          <a href="#" id=${item.id} class="btn btn-edit btn-dark">EDIT</a>
+          <a href="#" id=${item.id} class="btn btn-edit btn-dark"   data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a>
         </div>
       </div>`;
     productList.append(newItem);
@@ -84,3 +94,63 @@ document.addEventListener("click", (e) => {
     fetch(`${API}/${id}`, { method: "DELETE" }).then(() => render());
   }
 });
+
+// ? Отлавлтваем клик по кнопке edit
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("btn-edit")) {
+    let id = e.target.id;
+
+    fetch(`${API}/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // ? заполняем инпуты модального окна данными которые стянули с сервера
+        editedTitle.value = data.title;
+        editedPrice.value = data.price;
+        editedDescr.value = data.description;
+        editedImage.value = data.image;
+        editedCategory.value = data.category;
+        editBtnAdd.setAttribute("id", data.id);
+      });
+  }
+});
+
+editBtnAdd.addEventListener("click", function (e) {
+  let id = e.target.id;
+  let titleMod = editedTitle.value;
+  let priceModal = editedPrice.value;
+  let descrModal = editedDescr.value;
+  let imageModal = editedImage.value;
+  let categoryModal = editedCategory.value;
+
+  if (
+    !titleMod.trim() ||
+    !priceModal.trim() ||
+    !descrModal.trim() ||
+    !imageModal.trim() ||
+    !categoryModal.trim()
+  ) {
+    alert("fill to the blank");
+    return;
+  }
+
+  let editedProduct = {
+    title: titleMod,
+    price: priceModal,
+    description: descrModal,
+    Url: imageModal,
+    category: categoryModal,
+  };
+  saveEdit(editedProduct, id);
+});
+
+function saveEdit(editedProduct, id) {
+  fetch(`${API}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify(editedProduct),
+  }).then(() => render());
+  let myModal = bootstrap.Modal.getInstance(modal);
+  myModal.hide();
+}
