@@ -85,12 +85,14 @@ async function render() {
     newItem.innerHTML += `<div class="card" style="width: 18rem;">
         <img src="${item.image}" class="card-img-top" alt="image">
         <div class="card-body">
-          <h5 class="card-title">${item.title}</h5>
-          <h2 class="card-title">${item.category}</h2>
+
+          <h2 class="card-title">${item.title}</h2>
+          <h5 class="card-title">${item.category}</h5>
           <p class="card-text">${item.description}</p>
           <p class="card-text">${item.price}</p>
           <a href="#" id=${item.id} class="btn btn-delete btn-primary">DELETE</a>
           <a href="#" id=${item.id} class="btn btn-edit btn-dark"   data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a>
+
         </div>
       </div>`;
     productList.append(newItem);

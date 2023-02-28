@@ -7,6 +7,16 @@
       "price": "ghj",
       "image": "gftyuih",
       "id": 1
+
+    },
+    {
+      "title": "rouge",
+      "category": "decor",
+      "description": "vbn",
+      "price": "254",
+      "image": "https://w7.pngwing.com/pngs/444/254/png-transparent-rouge-cosmetics-christian-dior-se-color-face-powder-blushed-cosmetics-perfume-color.png",
+      "id": 2
+
     }
   ]
 }
