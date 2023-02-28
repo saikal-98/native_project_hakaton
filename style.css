@@ -1,1 +1,81 @@
+body {
+  background-image: url("https://i.pinimg.com/564x/32/e1/40/32e1400ba8f0e722e759f02a72a41dbc.jpg");
+  background-size: cover;
+  object-fit: cover;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  font-family: cursive;
+}
+.big-img {
+  display: flex;
+  justify-content: center;
+}
 
+#title {
+  width: 340px;
+  height: 35px;
+  border-radius: 10px;
+  background: transparent;
+}
+#image {
+  width: 340px;
+  height: 35px;
+  border-radius: 10px;
+  background: transparent;
+}
+#desc {
+  width: 340px;
+  height: 35px;
+  border-radius: 10px;
+  background: transparent;
+}
+#category {
+  width: 340px;
+  height: 35px;
+  border-radius: 10px;
+  background: transparent;
+}
+#price {
+  width: 340px;
+  height: 35px;
+  border-radius: 10px;
+  background: transparent;
+}
+#addBtn {
+  width: 240px;
+  height: 45px;
+  border-radius: 10px;
+  background: transparent;
+}
+#addBtn:hover {
+  box-shadow: 8px 8px 20px 0px rgba(9, 10, 10, 0.2);
+  border-color: rgb(215, 172, 120);
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 35px 0px;
+}
+
+.card-title {
+  font-family: cursive;
+}
+.card-text {
+  font-family: cursive;
+}
+.btn-edit {
+  background: rgb(82, 120, 82);
+  font-family: cursive;
+  color: black;
+}
+.btn-delete {
+  background: rgb(215, 155, 155);
+  font-family: cursive;
+  color: black;
+}
