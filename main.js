@@ -155,7 +155,7 @@ editBtnAdd.addEventListener("click", function (e) {
   };
   saveEdit(editedProduct, id);
 });
-// TEST COMMMIT
+// TEST COMMMIT FOR GITHUB
 function saveEdit(editedProduct, id) {
   fetch(`${API}/${id}`, {
     method: "PATCH",
