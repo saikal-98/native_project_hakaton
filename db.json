@@ -1,14 +1,30 @@
 {
   "cosmetics": [
     {
-      "title": "lipstick",
-      "category": "decoration ",
-      "description": "pink",
-      "price": "200",
-      "image": "https://i.pinimg.com/564x/a5/dc/13/a5dc131d32664f715db6cb0d91671e75.jpg",
-      "id": 3
+      "title": "perfume",
+      "category": "porfumery",
+      "description": "amazing aroma",
+      "price": "456",
+      "image": "https://i.pinimg.com/474x/68/e7/5b/68e75b6d9c5a90ae07cf9779de12ffd5.jpg",
+      "id": 1
     },
     {
+      "title": "blush",
+      "category": "decorative cosmetics",
+      "description": "when I'm covering blush I'm look like a Kendall",
+      "price": "4567",
+      "image": "https://i.pinimg.com/474x/2e/6f/18/2e6f185ae8842e852f8a1b6df6e677e6.jpg",
+      "id": 2
+    },
+    {
+
+      "title": "powder",
+      "category": "decorative cosmetics",
+      "description": "powder",
+      "price": "567",
+      "image": "https://i.pinimg.com/474x/9e/5f/7c/9e5f7cd0bc9059d92564a323033f3bd3.jpg",
+      "id": 3
+
       "title": "lipstick",
       "category": "decoration",
       "description": "red",
@@ -39,6 +55,7 @@
       "price": "320",
       "image": "https://i.pinimg.com/564x/ee/c2/00/eec20027c98e1ae92f6cc16f66034aa8.jpg",
       "id": 7
+
     }
   ]
 }
