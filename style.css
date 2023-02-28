@@ -1,4 +1,3 @@
-
 body {
   background-image: url("https://i.pinimg.com/564x/32/e1/40/32e1400ba8f0e722e759f02a72a41dbc.jpg");
   background-size: cover;
@@ -79,7 +78,7 @@ body {
   background: rgb(215, 155, 155);
   font-family: cursive;
   color: black;
-=======
+}
 .modal-body {
   background-image: url("https://i.pinimg.com/474x/40/70/e2/4070e2678bf112afe5f2f48da10d1ade.jpg");
 }
@@ -119,5 +118,4 @@ body {
 .edit-image {
   background: transparent;
   margin-top: 27px;
-
 }
