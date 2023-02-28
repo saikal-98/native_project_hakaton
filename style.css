@@ -1,1 +1,40 @@
+.modal-body {
+  background-image: url("https://i.pinimg.com/474x/40/70/e2/4070e2678bf112afe5f2f48da10d1ade.jpg");
+}
 
+.modal-header {
+  background-image: url(https://i.pinimg.com/474x/70/bd/44/70bd441ed67c775ed3917ce08cd593a0.jpg);
+}
+
+.modal-footer {
+  background-image: url(https://i.pinimg.com/474x/70/bd/44/70bd441ed67c775ed3917ce08cd593a0.jpg);
+}
+
+.save-btn {
+  background-color: rgb(224, 169, 207);
+}
+
+.edit-title {
+  background: transparent;
+  margin-top: 27px;
+}
+
+.edit-price {
+  background: transparent;
+  margin-top: 27px;
+}
+
+.edit-category {
+  background: transparent;
+  margin-top: 27px;
+}
+
+.edit-descr {
+  background: transparent;
+  margin-top: 27px;
+}
+
+.edit-image {
+  background: transparent;
+  margin-top: 27px;
+}
