@@ -10,6 +10,17 @@ let addBtn = document.querySelector("#addBtn");
 
 let productList = document.querySelector(".product-list");
 
+let paginList = document.querySelector(".pagin-list");
+let prev = document.querySelector(".prev");
+let next = document.querySelector(".next");
+
+let currentPage = 1;
+let pageTotalCount = 1;
+
+// ?search
+let search = document.querySelector("#search");
+let searchVal = "";
+
 addBtn.addEventListener("click", async () => {
   let obj = {
     title: title.value,
@@ -50,8 +61,10 @@ addBtn.addEventListener("click", async () => {
 // ?функция для отображения карточек продукта
 
 async function render() {
-  let res = await fetch(API);
+  let res = await fetch(`${API}?q=${searchVal}&_page=${currentPage}&_limit=4`);
   let products = await res.json();
+
+  paginationButtons();
 
   productList.innerHTML = "";
 
@@ -83,4 +96,68 @@ document.addEventListener("click", (e) => {
 
     fetch(`${API}/${id}`, { method: "DELETE" }).then(() => render());
   }
+});
+
+// ?pagination
+
+function paginationButtons() {
+  fetch(`${API}?q=${searchVal}`)
+    .then((res) => res.json())
+    .then((data) => {
+      pageTotalCount = Math.ceil(data.length / 4);
+      paginList.innerHTML = "";
+
+      for (let i = 1; i <= pageTotalCount; i++) {
+        if (currentPage == i) {
+          let page1 = document.querySelector("li");
+          page1.innerHTML = `<li class="page-item active"><a class="page-link page-num" href="#">${i}</a></li>`;
+          paginList.append(page1);
+        } else {
+          let page1 = document.querySelector("li");
+          page1.innerHTML = `<li class="page-item"><a class="page-link page-num" href="#">${i}</a></li>`;
+          paginList.append(page1);
+        }
+      }
+      if (currentPage == 1) {
+        prev.classList.add("disabled");
+      } else {
+        prev.classList.remove("disabled");
+      }
+
+      if (currentPage == pageTotalCount) {
+        next.classList.add("disabled");
+      } else {
+        next.classList.remove("disabled");
+      }
+    });
+}
+
+prev.addEventListener("click", () => {
+  if (currentPage <= 1) {
+    return;
+  }
+  currentPage--;
+  render();
+});
+
+next.addEventListener("click", () => {
+  if (currentPage >= pageTotalCount) {
+    return;
+  }
+  currentPage++;
+  render();
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("page-num")) {
+    currentPage = e.target.innerText;
+    render();
+  }
+});
+
+// ?search
+
+search.addEventListener("input", () => {
+  searchVal = search.value;
+  render();
 });
