@@ -37,23 +37,22 @@ addBtn.addEventListener("click", async () => {
     },
     body: JSON.stringify(obj),
   });
+
+  // ? очищаем инпуты
+  title.value = "";
+  category.value = "";
+  descr.value = "";
+  price.value = "";
+  image.value = "";
+
+  render();
 });
-
-// ? очищаем инпуты
-
-title.value = "";
-category.value = "";
-descr.value = "";
-price.value = "";
-image.value = "";
-
-render();
 
 // ?функция для отображения карточек продукта
 
 async function render() {
-  let res = fetch(`${API}`);
-  let products = (await res).json();
+  let res = await fetch(API);
+  let products = await res.json();
 
   productList.innerHTML = "";
 
@@ -68,10 +67,21 @@ async function render() {
           <h2 class="card-title">${item.category}</h2>
           <p class="card-text">${item.descr}</p>
           <p class="card-text">${item.price}</p>
-          <a href="#" id=${item.id} class="btn btn-primary">DELETE</a>
-          <a href="#" id=${item.id} class="btn btn-dark">EDIT</a>
+          <a href="#" id=${item.id} class="btn btn-delete btn-primary">DELETE</a>
+          <a href="#" id=${item.id} class="btn btn-edit btn-dark">EDIT</a>
         </div>
       </div>`;
     productList.append(newItem);
   });
 }
+render();
+
+// ? delete
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-delete")) {
+    let id = e.target.id;
+
+    fetch(`${API}/${id}`, { method: "DELETE" }).then(() => render());
+  }
+});
