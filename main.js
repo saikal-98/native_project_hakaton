@@ -150,7 +150,7 @@ editBtnAdd.addEventListener("click", function (e) {
     title: titleMod,
     price: priceModal,
     description: descrModal,
-    Url: imageModal,
+    image: imageModal,
     category: categoryModal,
   };
   saveEdit(editedProduct, id);
