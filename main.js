@@ -1,14 +1,11 @@
 let API = "http://localhost:8000/cosmetics";
 
-//? вытаскиваем инпуты
 let title = document.querySelector("#title");
 let category = document.querySelector("#category");
 let description = document.querySelector("#desc");
 let price = document.querySelector("#price");
 let image = document.querySelector("#image");
 let addBtn = document.querySelector("#addBtn");
-
-// ? вытаскиваем инпуты из модалки
 
 let editedTitle = document.querySelector(".edit-title");
 let editedCategory = document.querySelector(".edit-category");
@@ -50,7 +47,7 @@ addBtn.addEventListener("click", async () => {
     alert("fill to the blank please");
     return;
   }
-  // ? отправляем пост запрос
+
   await fetch(API, {
     method: "POST",
     headers: {
@@ -85,12 +82,14 @@ async function render() {
     newItem.innerHTML += `<div class="card" style="width: 18rem;">
         <img src="${item.image}" class="card-img-top" alt="image">
         <div class="card-body">
-          <h5 class="card-title">${item.title}</h5>
-          <h2 class="card-title">${item.category}</h2>
+
+          <h2 class="card-title">${item.title}</h2>
+          <h5 class="card-title">${item.category}</h5>
           <p class="card-text">${item.description}</p>
           <p class="card-text">${item.price}</p>
           <a href="#" id=${item.id} class="btn btn-delete btn-primary">DELETE</a>
           <a href="#" id=${item.id} class="btn btn-edit btn-dark"   data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a>
+
         </div>
       </div>`;
     productList.append(newItem);
@@ -108,7 +107,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ? Отлавлтваем клик по кнопке edit
+// ? edit
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("btn-edit")) {
     let id = e.target.id;
@@ -116,7 +115,6 @@ document.addEventListener("click", function (e) {
     fetch(`${API}/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // ? заполняем инпуты модального окна данными которые стянули с сервера
         editedTitle.value = data.title;
         editedPrice.value = data.price;
         editedDescr.value = data.description;

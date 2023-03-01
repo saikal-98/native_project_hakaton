@@ -1,0 +1,28 @@
+@media all and (max-width: 425px) {
+  .card {
+    margin: 20px 0px;
+  }
+}
+@media all and (max-width: 320px) {
+  .card {
+    margin: 20px 5px;
+  }
+  #title {
+    width: 230px;
+  }
+  #category {
+    width: 230px;
+  }
+  #price {
+    width: 230px;
+  }
+  #desc {
+    width: 230px;
+  }
+  #image {
+    width: 230px;
+  }
+  #addBtn {
+    width: 130px;
+  }
+}
